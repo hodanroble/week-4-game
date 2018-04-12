@@ -1,97 +1,99 @@
-$( document ).ready(function(){
-    // Generates random number to guess
-    var Random=Math.floor(Math.random()*102+19)
-    
-    // Display random number
-    $('#scoreToMatch').text(Random);
-    
-    //Generate random number for each crystal
-    var num1= Math.floor(Math.random()*12+1)
-    var num2= Math.floor(Math.random()*12+1)
-    var num3= Math.floor(Math.random()*12+1)
-    var num4= Math.floor(Math.random()*12+1)
-    
-    // Variables to keep track of wins, losses and total
-    var playerTotal= 0; 
-    var wins= 0;
-    var losses = 0;
-    
-  
-  $('#wins').text(wins);
-  $('#losses').text(losses);
-  
-  // Reset game
-  function reset(){
-        Random=Math.floor(Math.random()*102+19);
-        console.log(Random)
-        $('#scoreToMatch').text(Random);
-        num1= Math.floor(Math.random()*12+1);
-        num2= Math.floor(Math.random()*12+1);
-        num3= Math.floor(Math.random()*12+1);
-        num4= Math.floor(Math.random()*12+1);
-        playerTotal= 0;
-        $('#totalScore').text(playerTotal);
-        } 
-  // Display wins
-  function yay(){
-  alert("Congrats! You won!");
-    wins++; 
-    $('#wins').text(wins);
-    reset();
-  }
-  // Display losses
-  function loser(){
-  alert ("You lose!");
-    losses++;
-    $('#losses').text(losses);
-    reset()
-  }
-  // Clicking crystals
-    $('.red').on ('click', function(){
-      playerTotal = playerTotal + num1;
-      console.log("New playerTotal= " + playerTotal);
-      $('#totalScore').text(playerTotal); 
-            //Win & lose conditions
-          if (playerTotal == Random){
-            yay();
-          }
-          else if ( playerTotal > Random){
-            loser();
-          }   
-    })  
-    $('.blue').on ('click', function(){
-      playerTotal = playerTotal + num2;
-      console.log("New playerTotal= " + playerTotal);
-      $('#totalScore').text(playerTotal); 
-          if (playerTotal == Random){
-            yay();
-          }
-          else if ( playerTotal > Random){
-            loser();
-          } 
-    })  
-    $('.yellow').on ('click', function(){
-      playerTotal = playerTotal + num3;
-      console.log("New playerTotal= " + playerTotal);
-      $('#totalScore').text(playerTotal);
-  
-            if (playerTotal == Random){
-            yay();
-          }
-          else if ( playerTotal > Random){
-            loser();
-          } 
-    })  
-    $('.green').on ('click', function(){
-      playerTotal = playerTotal + num4;
-      console.log("New playerTotal= " + playerTotal);
-      $('#totalScore').text(playerTotal); 
-        
-            if (playerTotal == Random){
-            yay();
-          }
-          else if ( playerTotal > Random){
-            loser();
-          }
-    });   
-  });
+var randomNum = "";
+var totalScore = 0;
+var wins = 0;
+var lossess = 0;
+var crystal1 = "";
+var crystal2 = "";
+var crystal3 = "";
+var crystal4 = "";
+
+
+function getRandom(min, max) {
+
+    return Math.floor(Math.random() * (max - min) + min);
+
+};
+
+
+
+$("currentScore").innerHTML = totalScore;
+
+function game() {
+
+    if (totalScore === randomNum) {
+        wins++;
+        alert('You win');
+        $('#winner').html(wins);
+        newGame();
+    } else if (totalScore > randomNum) {
+        lossess++;
+        alert("you Lose");
+        $('#loser').html(lossess);
+        newGame();
+
+    }
+};
+
+function newGame() {
+
+    randomNum = getRandom(19, 120);
+    crystal1 = getRandom(1, 12);
+    crystal2 = getRandom(1, 12);
+    crystal3 = getRandom(1, 12);
+    crystal4 = getRandom(1, 12);
+    totalScore = 0;
+
+    $('#TotalRandom').html(randomNum);
+
+    $('#currentScore').html(totalScore);
+
+};
+
+newGame();
+
+
+$('#red').on('click', function () {
+
+
+    crystal1 = getRandom(1, 12);
+    totalScore = crystal1 + totalScore;
+    $("#currentScore").html(totalScore);
+    game();
+    console.log(crystal1);
+    console.log(totalScore);
+
+
+});
+
+$('#blue').on('click', function () {
+
+    crystal2 = getRandom(1, 12);
+    totalScore = crystal2 + totalScore;
+    $('#currentScore').html(totalScore);
+    game();
+    console.log(crystal2);
+    console.log(totalScore);
+
+});
+
+$('#green').on('click', function () {
+
+    crystal3 = getRandom(1, 12);
+    totalScore = crystal3 + totalScore;
+    $('#currentScore').html(totalScore);
+    game();
+    console.log(crystal3);
+    console.log(totalScore);
+
+});
+
+$('#yellow').on('click', function () {
+
+    crystal4 = getRandom(1, 12);
+    totalScore = crystal4 + totalScore;
+    $('#currentScore').html(totalScore);
+    game();
+    console.log(crystal4);
+    console.log(totalScore);
+
+});

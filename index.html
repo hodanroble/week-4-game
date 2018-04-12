@@ -2,71 +2,109 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Crystal Collector</title>
-  <!-- Reset CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
-  <!-- Latest compiled and minified CSS (Bootstrap) -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- Optional theme (Bootstrap) -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <!-- Latest compiled and minified Javascript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Crystal Game!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
+
 <body>
 
-  <div class="jumbotron text-center">
-    <h1>Crystal Collector</h1></div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" id="main-section">
+                    <div class="panel panel-default" id="main-panel">
+                        <div class="panel-heading" id="heading">Crystal Game!</div>
+                        <div class="panel-body" id="frist-panel"></div>
+                        <p>How to Play:</p>
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12 instructions">
-            <h2>Instructions</h2> 
-            <p>You will be given a random number at the start of the game.</p>
-            <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
-            <p>You win the game by matching your total score to the random number. You lost the game if your total score goes above the random number.</p>
-            <p>The value of each crystal is hidden from you until you click on it. Each time the game starts the game will change the value of each crystal.</p>
-          </div>
-        </div>
+                        <p>You will be given a random number at the start of the game.</p>
+                        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points
+                            to your total score.</p>
+                        <p>You win the game by matching your total score to the random number. You lost the game if your total
+                            score goes above the random number.</p>
+                        <p>The value of each crystal is hidden from you until you click on it. Each time the game starts the
+                            game will change the value of each crystal.</p>
+                        </p>
 
-    <div class="row">
-      <div class="col-sm-9">
-        <h2>Score to match: <span id="scoreToMatch"></span></h2>
-      </div>
-    <div class="col-sm-3">
-        <h3>Wins: <span id="wins"></span></h3>
-        <h3 class="text-left">Losses: <span id="losses"></span></h3>
-      </div>
-    </div>
 
-      <div class="row text-center">
-        <div class="col-sm-3">
-        <img src="assets/images/red-crystal.jpg" class="img-thumnail red" alt="Red Crystal" width="200" height="200" />
-        </div>
-        <div class="col-sm-3">
-        <img src="assets/images/blue-crystal.jpg" class="img-thumbnail blue" alt="Blue Crystal" width="200" height="200" />
-        </div>
-        <div class="col-sm-3">
-        <img src="assets/images/yellow-crystal.jpg" class="img-thumnail yellow" alt="Yellow Crystal" width="200" height="200" />
-        </div>
-        <div class="col-sm-3">
-          <img src="assets/images/green-crystal.jpg" class="img-thumnail green" alt="Green Crystal" width="200" height="200" />
-        </div>
-      </div>
+                        <p>
+                            <bold>Random Number:</bold>
+                        </p>
 
-    <div class="row">
-      <div class="col-sm-12">
-      <h2>Your total score is: <span id="totalScore"></span></h2>
-      </div>
-    </div>
-    </div>
+                        <p id="TotalRandom"></p>
 
+                    </div>
+                </div>
+            </div>
+            <div id="TotalRandom">
+
+            </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" id="main-section">
+                    <div class="panel panel-default">
+                        <div class="panel-body"></div>
+                        <section id="Crystals">
+                            <img id="blue" src="assets/images/blue-crystal.jpg" width="200px">
+                            <img id="green" src="assets/images/green-crystal.jpg" width="200px">
+                            <img id="yellow" src="assets/images/yellow-crystal.jpg" width="200px">
+                            <img id="red" src="assets/images/red-crystal.jpg" width="200px">
+                            <div class="card-body">
+                                <h1 class="card-title">CLICK CRYSTALS</h1>
+                        </section>
+
+                        <div class="row">
+
+                            <div class="card text-center col-md-3 ml-5">
+                                <div class="card-body">
+                                    <h2 class="card-title bg-danger">LOSSES</h2>
+                                    <p class="card-text" id="loser">-</p>
+                                    <p class="card-text">
+                                        <small class="text-muted"></small>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="card text-center col-md-3">
+                                <div class="card-body">
+                                    <h3 class="card-title">TOTAL SCORE</h3>
+                                    <p class="card-text" id="currentScore">.</p>
+                                    <p class="card-text">
+                                        <small class="text-muted"></small>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="card text-center col-md-3">
+                                <div class="card-body">
+                                    <h4 class="card-title bg-success">WINS</h4>
+                                    <p class="card-text" id="winner">-</p>
+                                    <p class="card-text">
+                                        <small class="text-muted"></small>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Scirpt -->
+    <script src="./assets/javascript/game.js"></script>
 
 </body>
-<!-- JS -->
-<script src="assets/javascript/game.js"></script> 
+
 </html>
